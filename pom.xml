@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>vk_auto_test_frame</artifactId>
+        <groupId>com.java.vk.test</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>testing</artifactId>
+
+    <properties>
+        <!-- Default values for some test variables -->
+        <suiteDir>${project.basedir}/src/test/resources</suiteDir>
+        <suiteXmlFile>games.xml</suiteXmlFile>
+        <suiteXmlFile>ads.xml</suiteXmlFile>
+        <suiteXmlFile>quarantine.xml</suiteXmlFile>
+        <suiteXmlFile>vkconnect.xml</suiteXmlFile>
+        <suiteXmlFile>domains.xml</suiteXmlFile>
+        <suiteXmlFile>mvkDomains.xml</suiteXmlFile>
+        <suiteXmlFile>staging.xml</suiteXmlFile>
+        <!--<parallel>tests</parallel>-->
+        <retryCount>1</retryCount>
+        <!--<threadCount>2</threadCount>-->
+        <!--<dataproviderthreadcount>10</dataproviderthreadcount>-->
+        <!-- -->
+
+        <aspectjVersion>1.9.1</aspectjVersion>
+        <allureTestNGVersion>2.13.2</allureTestNGVersion>
+        <driverManagerVersion>3.4.0</driverManagerVersion>
+        <log4j2Version>2.11.2</log4j2Version>
+        <seleniumVersion>3.141.59</seleniumVersion>
+        <selenideVersion>5.12.2</selenideVersion>
+        <testNGVersion>7.3.0</testNGVersion>
+        <hamcrestVersion>2.1</hamcrestVersion>
+        <appiumVersion>7.0.0</appiumVersion>
+        <apiSdkVersion>1.0.6</apiSdkVersion>
+        <slf4jVersion>1.7.5</slf4jVersion>
+
+        <allureResultsDirectory>${project.build.directory}/allure-results</allureResultsDirectory>
+        <allureReportDirectory>${project.build.directory}/allure-report</allureReportDirectory>
+    </properties>
+    <dependencies>
+
+        <!-- Official VK API SDK -->
+        <dependency>
+            <groupId>com.vk.api</groupId>
+            <artifactId>sdk</artifactId>
+            <version>${apiSdkVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.8</version>
+        </dependency>
+
+        <!-- Appium for device driver -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>${appiumVersion}</version>
+        </dependency>
+
+        <!-- log4j2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2Version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2Version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4jVersion}</version>
+        </dependency>
+
+        <!-- Selenide + bonigracia for driver binary management -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${driverManagerVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenideVersion}</version>
+        </dependency>
+
+        <!-- Selenium Core -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${seleniumVersion}</version>
+        </dependency>
+
+        <!-- Allure + Adaptors -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allureTestNGVersion}</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testNGVersion}</version>
+        </dependency>
+
+        <!-- Dedicated lib for smart assertion -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrestVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20171018</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.assertthat</groupId>
+            <artifactId>selenium-shutterbug</artifactId>
+            <version>0.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <trimStackTrace>false</trimStackTrace>
+
+                    <systemPropertyVariables>
+                        <testng.dtd.http>true</testng.dtd.http>
+                        <allure.results.directory>${allureResultsDirectory}</allure.results.directory>
+                        <allure.report.directory>${allureReportDirectory}</allure.report.directory>
+                    </systemPropertyVariables>
+
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjVersion}/aspectjweaver-${aspectjVersion}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectjVersion}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+</project>
