@@ -31,7 +31,7 @@
         <aspectjVersion>1.9.1</aspectjVersion>
         <allureTestNGVersion>2.13.2</allureTestNGVersion>
         <driverManagerVersion>3.4.0</driverManagerVersion>
-        <log4j2Version>2.11.2</log4j2Version>
+        <log4j2Version>2.14.1</log4j2Version>
         <seleniumVersion>3.141.59</seleniumVersion>
         <selenideVersion>5.12.2</selenideVersion>
         <testNGVersion>7.3.0</testNGVersion>
